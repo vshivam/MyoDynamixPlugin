@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contextPlugins version="1.0.0">
+    <contextPlugin
+            metadataVersion="1.0.0"
+            repoType="simple-file"
+            id="org.ambientdynamix.contextplugins.myoplugin"
+            pluginVersion="2.1.0"
+            pluginType="AUTO"
+            provider="Ambient Dynamix"
+            platform="android"
+            minPlatformVersion="2.1"
+            minFrameworkVersion="2.1.0"
+            requiresConfiguration="false"
+            hasConfigurationView="true"
+            runtimeFactoryClass="org.ambientdynamix.contextplugins.myoplugin.PluginFactory">
+        <name>Myo Plugin</name>
+        <description>Offers Interaction possibilties with The Myo Gesture recognition Armband.</description>
+        <supportedContextTypes>
+            <contextType
+                    id="org.ambientdynamix.contextplugins.myoplugin.threeAxis" broadcasts="schemas/orientation"
+                    configurationDataType="schemas/frequency"
+                    name="Myo Raw Sensor Data">
+                <description>Gives access to orientation data</description>
+            </contextType>
+            <contextType
+                    id="org.ambientdynamix.contextplugins.myoplugin.gesture"
+                    broadcasts="schemas/gesture"
+                    name="Gesture Data from Myo">
+                <description>Gives access to gesture data</description>
+            </contextType>
+            <contextType
+                    id="org.ambientdynamix.contextplugins.myoplugin.vibration" name="Myo Vibration Control">
+                <description>Enables clients to send vibration feedback</description>
+                <supportedInteractions>
+                    <interaction type="contextRequest" output="schemas/vibration"/>
+                </supportedInteractions>
+            </contextType>
+            <contextType
+                    id="org.ambientdynamix.contextplugins.myoplugin.collision" broadcasts="schemas/collision"
+                    name="Hard Tap the Myo" description="Gives access to double tap events">
+                <description>Provides access hard tap events from the Myo Armband</description>
+            </contextType>
+            <contextType
+                    id="org.ambientdynamix.contextplugins.myoplugin.discover" name="Search for Myo Armband">
+                <description>Discover and Connect to a Myo Armband</description>
+                <supportedInteractions>
+                    <interaction type="contextRequest" output="schemas/boolean"/>
+                </supportedInteractions>
+            </contextType>
+        </supportedContextTypes>
+        <featureDependencies/>
+        <permissions>
+            <permission>Context.ACTIVITY_SERVICE</permission>
+            <permission>Permissions.SEND_INTER_PLUGIN_MESSAGES</permission>
+            <permission>Permissions.RECEIVE_INTER_PLUGIN_MESSAGES</permission>
+            <permission>permissions.MANAGE_BROADCAST_RECEIVERS</permission>
+            <permission>Permissions.ACCESS_FULL_CONTEXT</permission>
+        </permissions>
+        <installUrl>dynamix/MyoPlugin-Core-2.0.0.jar</installUrl>
+        <updateUrl></updateUrl>
+        <updateMessage priority="OPTIONAL"></updateMessage>
+    </contextPlugin>
+</contextPlugins>
